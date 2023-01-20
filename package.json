@@ -1,0 +1,22 @@
+{
+  "name": "graficascomputacionales-proyectofinal",
+  "version": "1.0.0",
+  "description": "Escena 3d de la Puerta de Chihuahua",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GGA-SchoolWork/GraficasComputacionales-ProyectoFinal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GGA-SchoolWork/GraficasComputacionales-ProyectoFinal/issues"
+  },
+  "homepage": "https://github.com/GGA-SchoolWork/GraficasComputacionales-ProyectoFinal#readme",
+  "dependencies": {
+    "three": "^0.148.0"
+  }
+}
