@@ -9,4 +9,4 @@ El elemento animado será un carro simple que rodeará la escultura dando vuelta
 ![Top-down de la glorieta describiendo la trayectoria sugerida del carro](img/ReferenciaAnimacion.png)
 
 ## Tecnologias
-Se realizará en WebGL.
+Se realizará en WebGL usando ThreeJS. Se usará el template de ThreeJS usando Webpack encontrado en [threejs-journey.com](https://threejs-journey.com/lessons/webpack)
