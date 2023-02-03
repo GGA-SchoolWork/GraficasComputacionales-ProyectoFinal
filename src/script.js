@@ -11,6 +11,9 @@ let mouseX = 0, mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
+var troca;
+var trocaObj;
+
 // Funcion principal
 init();
 animate();
@@ -37,6 +40,8 @@ function init() {
     camera.add(pointLight);
 
     // Loaders de modelos
+
+    // Puerta de Chihuahua
     new MTLLoader()
         .setPath('./models/')   // En que carpeta esta el modelo
         .load('puerta.mtl', function (materials) {  // Carga .mtl
@@ -55,6 +60,7 @@ function init() {
 
         });
 
+    // Podio de la puerta
     new MTLLoader()
         .setPath('./models/')
         .load('podio.mtl', function (materials) {
@@ -74,6 +80,10 @@ function init() {
 
         });
 
+
+    // Troca
+    trocaObj = new THREE.Object3D();
+    scene.add(trocaObj)
     new MTLLoader()
         .setPath('./models/')
         .load('troca.mtl', function (materials) {
@@ -87,10 +97,11 @@ function init() {
 
 
                     object.position.y = -18;
-                    object.position.z = 100;
+                    object.position.z = 140;
                     object.rotation.x = -1.5;
                     object.rotation.z = -1.5;
-                    scene.add(object);
+                    troca = object;
+                    trocaObj.add(object);
 
                 });
 
@@ -127,6 +138,8 @@ function onDocumentMouseMove(event) {
 
 function animate() {
     requestAnimationFrame(animate);
+    // Animacion
+    trocaObj.rotation.y += 0.0125;
     render();
 }
 
