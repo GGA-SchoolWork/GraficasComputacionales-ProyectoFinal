@@ -1,8 +1,14 @@
-# Color definition for Tinkercad Obj File 2015
+# Blender 3.4.1 MTL File: 'puerta.blend'
+# www.blender.org
 
-newmtl color_16089887
-Ka 0 0 0 
-Kd 0.9607843137254902 0.5137254901960784 0.12156862745098039
-d 1
-illum 0.0
-
+newmtl puerta
+Ka 1.000000 1.000000 1.000000
+Kd 0.960784 0.513726 0.121569
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Ns textures/rusty_metal_02_rough_4k.jpg
+map_refl textures/rusty_metal_02_diff_4k.jpg
+map_Bump -bm 1.400000 textures/rusty_metal_02_nor_gl_4k.exr

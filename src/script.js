@@ -34,12 +34,18 @@ function init() {
     scene.add(camera);
 
     // Crea Luces
-    const ambientLight = new THREE.AmbientLight(0xcccccc, 0.3);
-    scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 0.4);
+    const pointLight = new THREE.PointLight(0xffffff, 0.7);
     pointLight.position.x = 60;
-    pointLight.position.y = 80;
-    camera.add(pointLight);
+    pointLight.position.y = 100;
+    pointLight.position.z = 30;
+    pointLight.castShadow = true;
+    scene.add(pointLight);
+
+    //Set up shadow properties for the light
+    pointLight.shadow.mapSize.width = 512; // default
+    pointLight.shadow.mapSize.height = 512; // default
+    pointLight.shadow.camera.near = 0.5; // default
+    pointLight.shadow.camera.far = 500; // default
 
     // Loaders de modelos
 
@@ -54,8 +60,8 @@ function init() {
                 .setMaterials(materials)
                 .setPath('./models/')
                 .load('puerta.obj', function (object) {
-
-                    object.rotation.x = -1.5;
+                    object.castShadow = true;
+                    object.receiveShadow = true;
                     scene.add(object);
 
                 });
@@ -73,9 +79,8 @@ function init() {
                 .setMaterials(materials)
                 .setPath('./models/')
                 .load('podio.obj', function (object) {
-
-                    object.position.y = -12;
-                    object.rotation.x = -1.5;
+                    object.castShadow = true;
+                    object.receiveShadow = true;
                     scene.add(object);
 
                 });
@@ -96,12 +101,8 @@ function init() {
                 .setMaterials(materials)
                 .setPath('./models/')
                 .load('troca.obj', function (object) {
-
-
-                    object.position.y = -18;
-                    object.position.z = 140;
-                    object.rotation.x = -1.5;
-                    object.rotation.z = -1.5;
+                    object.castShadow = true;
+                    object.receiveShadow = true;
                     troca = object;
                     trocaObj.add(object);
 
@@ -109,12 +110,34 @@ function init() {
 
         });
 
+    new MTLLoader()
+        .setPath('./models/')
+        .load('plano.mtl', function (materials) {
+
+            materials.preload();
+
+            new OBJLoader()
+                .setMaterials(materials)
+                .setPath('./models/')
+                .load('plano.obj', function (object) {
+                    object.receiveShadow = true;
+                    scene.add(object);
+
+                });
+
+        });
+
     // Crea el renderer
-    renderer = new THREE.WebGLRenderer();
-    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
+    renderer.outputEncoding = THREE.sRGBEncoding;
     container.appendChild(renderer.domElement);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 
     // Agrega eventos
     document.addEventListener('mousemove', onDocumentMouseMove);

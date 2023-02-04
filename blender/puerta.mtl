@@ -1,0 +1,14 @@
+# Blender 3.4.1 MTL File: 'puerta.blend'
+# www.blender.org
+
+newmtl puerta
+Ka 1.000000 1.000000 1.000000
+Kd 0.960784 0.513726 0.121569
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Ns C:/Users/gerar/Documents/01 School/Invierno/GraficasComputacionales-ProyectoFinal/src/models/textures/rusty_metal_02_rough_4k.jpg
+map_refl C:/Users/gerar/Documents/01 School/Invierno/GraficasComputacionales-ProyectoFinal/src/models/textures/rusty_metal_02_diff_4k.jpg
+map_Bump -bm 1.400000 C:/Users/gerar/Documents/01 School/Invierno/GraficasComputacionales-ProyectoFinal/src/models/textures/rusty_metal_02_nor_gl_4k.exr
