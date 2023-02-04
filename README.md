@@ -13,3 +13,6 @@ Se realizará en WebGL usando ThreeJS. Se usará el template de ThreeJS usando W
 
 ## Como correr
 Con Node y Webpack instalado, se debe hacer ``npm run dev``
+
+## Demostracion
+[Video](https://youtu.be/XMeCmPR77-E)
