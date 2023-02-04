@@ -34,9 +34,11 @@ function init() {
     scene.add(camera);
 
     // Crea Luces
-    const ambientLight = new THREE.AmbientLight(0xcccccc, 0.4);
+    const ambientLight = new THREE.AmbientLight(0xcccccc, 0.3);
     scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 0.5);
+    const pointLight = new THREE.PointLight(0xffffff, 0.4);
+    pointLight.position.x = 60;
+    pointLight.position.y = 80;
     camera.add(pointLight);
 
     // Loaders de modelos
